@@ -15,7 +15,7 @@
       <!-- Main content -->
       <div class="flex flex-grow bg-transparent">
         <!-- Sidebar -->
-        <aside class="w-80 bg-gray-100 pt-6">
+        <aside class="w-80 bg-gray-100 pt-6 shadow-md">
           <div class="mb-9 mt-5">
             <img src="../assets/perbyte_logo.png" alt="User avatar" class="mx-auto rounded-full w-24 h-24 mb-2">
             <div class="text-center mt-5">
@@ -35,7 +35,7 @@
         <main class="flex-grow p-4 bg-[url('../assets/work_area_background2.png')]">
           <CompanySelector />
           <ScrollableDataContainer />
-          <hr class="border-t m-3 border-gray-400 shadow" />
+          <hr class="border-t m-2 border-gray-400 shadow" />
         </main>
       </div>
 

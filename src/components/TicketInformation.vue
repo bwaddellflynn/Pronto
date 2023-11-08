@@ -1,5 +1,5 @@
 <template>
-  <div class="data-container max-h-96 overflow-auto bg-white shadow rounded-lg">
+  <div class="data-container bg-white shadow rounded-lg">
     <div class="p-4">
       <!-- Table Header -->
       <div class="grid grid-cols-7 gap-4 font-bold py-2">
