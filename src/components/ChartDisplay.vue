@@ -6,7 +6,7 @@
   
   <script>
   import BarChart from '@/components/BarChart.vue';
-  import AcceloService from '@/services/AcceloService';
+  //import AcceloService from '@/services/AcceloService';
   
   export default {
     components: {
@@ -16,7 +16,6 @@
       return {
         chartData: null,
         chartOptions: {
-          // Customize chart options here
           scales: {
             y: {
               beginAtZero: true
@@ -25,6 +24,7 @@
         }
       };
     },
+    /*
     async mounted() {
       try {
         // You may need to modify this part based on the actual response structure of Accelo API
@@ -45,5 +45,6 @@
         console.error('Error fetching data:', error);
       }
     }
+    */
   };
   </script>
