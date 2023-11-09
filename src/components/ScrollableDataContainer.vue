@@ -12,7 +12,7 @@
 
     <!-- Modal -->
     <div v-if="isModalOpen" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center p-4 z-50">
-      <div class="bg-white p-6 rounded shadow-lg-h-screen w-full h-full">
+      <div class="bg-white p-6 overflow-auto rounded shadow-lg-h-screen w-full h-full">
         <h3 class="text-lg font-bold mb-4">All Ticket Data</h3>
         
         <!-- Modal content -->

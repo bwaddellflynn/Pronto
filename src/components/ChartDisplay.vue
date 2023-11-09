@@ -26,7 +26,7 @@ export default {
             label: 'Hours',
             data: [117, 86.25, 10.75, 30.75], // Test data. Will be replaced with data from Accelo
             backgroundColor: [
-              'rgba(75, 192, 192, 0.2)',
+              'rgba(75, 192, 192, 0.5)',
             ],
             borderColor: [
               'rgba(75, 192, 192, 1)'
@@ -78,7 +78,7 @@ export default {
 <style scoped>
 .chart-container {
   position: relative;
-  height: 40vh; /* Control the height of the chart container */
+  height: 30vh; /* Control the height of the chart container */
   width: 50vw; /* Adjust the width to make the chart narrower */
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="data-container bg-white shadow rounded-lg">
+  <div class="data-container overflow-auto bg-white shadow rounded-lg">
     <div class="p-4">
       <!-- Table Header -->
       <div class="grid grid-cols-7 gap-4 font-bold py-2">
@@ -27,7 +27,7 @@ export default {
   name: 'TicketInformation',
   data() {
     return {
-      tickets: this.generateTickets(10) // Generate 10 IT ticket objects
+      tickets: this.generateTickets(20) // Generate 10 IT ticket objects
     };
   },
   methods: {
