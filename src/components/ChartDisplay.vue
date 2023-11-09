@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center">
+  <div class="flex justify-center items-center pr-10">
     <div class="chart-container">
       <canvas ref="barChart"></canvas>
     </div>
@@ -15,28 +15,35 @@ export default {
   data() {
     return {
       chart: null,
+      chartData: {
+        totalBudgetedHours: 0, // These will be populated with API data
+        usedThisQuarter: 0,
+        usedThisPeriod: 0,
+        hoursRemaining: 0,
+      },
     };
   },
   methods: {
-    addTestData() {
-      const testData = {
-        labels: ['Total Budgeted Hours', 'Used this Quarter', 'Used this Period', 'Hours Remaining'],
+    addChartData() {
+      const data = {
+        labels: ['Total Budgeted', 'Used this Quarter', 'Used this Period', 'Hours Remaining'],
         datasets: [
           {
             label: 'Hours',
-            data: [117, 86.25, 10.75, 30.75], // Test data. Will be replaced with data from Accelo
-            backgroundColor: [
-              'rgba(75, 192, 192, 0.5)',
+            data: [
+              this.chartData.totalBudgetedHours,
+              this.chartData.usedThisQuarter,
+              this.chartData.usedThisPeriod,
+              this.chartData.hoursRemaining,
             ],
-            borderColor: [
-              'rgba(75, 192, 192, 1)'
-            ],
+            backgroundColor: 'rgba(75, 192, 192, 0.5)',
+            borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1,
           },
         ],
       };
 
-      this.renderChart(testData);
+      this.renderChart(data);
     },
     renderChart(data) {
       const context = this.$refs.barChart.getContext('2d');
@@ -49,28 +56,35 @@ export default {
         type: 'bar',
         data: data,
         options: {
-          indexAxis: 'y', // Horizontal bar chart
+          indexAxis: 'y',
           scales: {
             x: {
               beginAtZero: true,
-              max: 150, // Set the maximum value of the x-axis
+              max: 150,
             },
             y: {
-              barThickness: 24, // Control the bar thickness on the y-axis
+              barThickness: 24,
             },
           },
           plugins: {
             legend: {
-              position: 'bottom', // Display the legend at the bottom
+              position: 'bottom',
             },
           },
-          maintainAspectRatio: false, // Prevent default aspect ratio maintaining
+          maintainAspectRatio: false,
         },
       });
     },
   },
   mounted() {
-    this.addTestData(); // TODO - Replace this with Accelo API data retrieval logic later
+    // TODO: Replace these test values with actual API call to fetch data
+    this.chartData.totalBudgetedHours = 117;
+    this.chartData.usedThisQuarter = 86.25;
+    this.chartData.usedThisPeriod = 10.75;
+    this.chartData.hoursRemaining = 30.75;
+
+    // After setting the data, adds it to the chart
+    this.addChartData();
   },
 };
 </script>
@@ -78,7 +92,7 @@ export default {
 <style scoped>
 .chart-container {
   position: relative;
-  height: 30vh; /* Control the height of the chart container */
-  width: 50vw; /* Adjust the width to make the chart narrower */
+  height: 30vh;
+  width: 50vw;
 }
 </style>

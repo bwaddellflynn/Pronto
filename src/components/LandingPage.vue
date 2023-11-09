@@ -36,7 +36,10 @@
           <CompanySelector />
           <ScrollableDataContainer />
           <hr class="border-t m-2 border-gray-400 shadow" />
-          <ChartDisplay/>
+          <div class="flex justify-center">
+            <ChartDisplay/>
+            <CalendarSelector/>
+          </div>  
         </main>
       </div>
 
@@ -55,7 +58,8 @@
 <script>
 import CompanySelector from './CompanySelector.vue'
 import ScrollableDataContainer from './ScrollableDataContainer.vue';
-import ChartDisplay from './ChartDisplay.vue'
+import ChartDisplay from './ChartDisplay.vue';
+import CalendarSelector from './CalendarSelector.vue'
 
 export default {
   name: 'HelloWorld',
@@ -63,6 +67,7 @@ export default {
     CompanySelector,
     ScrollableDataContainer,
     ChartDisplay,
+    CalendarSelector,
   }
 }
 </script>

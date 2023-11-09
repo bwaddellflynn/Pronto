@@ -27,7 +27,7 @@ export default {
   name: 'TicketInformation',
   data() {
     return {
-      tickets: this.generateTickets(20) // Generate 10 IT ticket objects
+      tickets: this.generateTickets(10) // Generate 10 IT ticket objects
     };
   },
   methods: {
