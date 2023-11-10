@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center pr-10">
+  <div class="flex justify-center items-center mt-9 pr-10">
     <div class="chart-container">
       <canvas ref="barChart"></canvas>
     </div>

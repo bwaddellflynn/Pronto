@@ -1,5 +1,5 @@
 <template>
-  <div class="flex p-5 items-center bg-transparent">
+  <div class="flex pb-4 items-center bg-transparent">
     <!-- Right side: Dropdowns and Submit button -->
     <div class="px-4 w-3/5">
       <p>Dedicated Service Agreements</p>

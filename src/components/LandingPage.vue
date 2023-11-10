@@ -2,7 +2,7 @@
   <div>
     <div class="min-h-screen flex flex-col">
       <!-- Navbar -->
-      <nav class="bg-gray-800 p-4 text-white flex justify-between items-center">
+      <nav class="bg-gray-800 p-3 text-white flex justify-between items-center">
       <a href="#"><img class="object-scale-down h-7" alt="Vue logo" src="../assets/logo.png"></a>
         <div>
           <a href="#" class="mx-2 hover:text-gray-300 pr-4 pl-4">Home</a>
@@ -32,7 +32,7 @@
         </aside>
 
         <!-- Data display area -->
-        <main class="flex-grow p-4 bg-[url('../assets/work_area_background2.png')]">
+        <main class="flex-grow px-4 py-2 bg-[url('../assets/work_area_background2.png')]">
           <CompanySelector />
           <ScrollableDataContainer />
           <hr class="border-t m-2 border-gray-400 shadow" />

@@ -4,7 +4,6 @@
       Selected Date Range: {{ displayDateRange }}
     </div>
     <DatePicker
-      class="m-5"
       v-model="date"
       :attributes="attrs"
       :model-config="modelConfig"
