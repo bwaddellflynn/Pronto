@@ -1,67 +1,52 @@
 <template>
-  <div>
-    <div class="text-center font-bold my-4">
-      Selected Date Range: {{ displayDateRange }}
+  <div class="p-4">
+    <!-- Display selected date range -->
+    <div class="flex" v-if="dateRange.start && dateRange.end">
+      <p>Start: {{ dateRange.start.toLocaleDateString() }}-</p>
+      <p>End: {{ dateRange.end.toLocaleDateString() }}</p>
     </div>
+
     <DatePicker
-      v-model="date"
-      :attributes="attrs"
-      :model-config="modelConfig"
-      is-inline
-      @input="updateDateRange"
+      is-range
+      v-model="dateRange"
+      mode="range"
     />
   </div>
 </template>
 
 <script>
+import { ref, watch } from 'vue';
+import 'v-calendar/dist/style.css';
 import { DatePicker } from 'v-calendar';
-import 'v-calendar/style.css';
 
 export default {
   components: {
-    DatePicker,
+    DatePicker
   },
-  data() {
-    return {
-      date: null,
-      attrs: [],
-      modelConfig: {
-        type: 'single', // or 'range' if you want to select a range of dates
-        isRange: false, // true if you are using type 'range'
-      },
-    };
-  },
-  computed: {
-    // Display the date range as a string
-    displayDateRange() {
-      if (!this.date) return 'None';
-      // If you're using a range, adjust this to format the start and end dates
-      return this.date.toLocaleDateString();
-    },
-  },
-  methods: {
-    updateDateRange(selectedDate) {
-      // Update the date range attributes to highlight the range
-      this.date = selectedDate;
-      const start = new Date(selectedDate);
-      const end = new Date(start);
-      // Set end to 14 days ahead for bi-weekly, adjust accordingly for other ranges
-      end.setDate(start.getDate() + 13);
+  setup() {
+    const dateRange = ref({ start: null, end: null });
 
-      this.attrs = [
-        {
-          // Highlight the range with custom styling
-          key: 'range',
-          highlight: {
-            backgroundColor: '#ffecb3', // Use a mild color for the highlight
-          },
-          dates: {
-            start: start,
-            end: end,
-          },
-        },
-      ];
-    },
-  },
-}
+    // Watcher function to update the range when a date is selected
+    watch(dateRange, (newValue) => {
+      if (newValue.start) {
+        const selectedDate = new Date(newValue.start);
+        // Set start to the previous Monday
+        const start = new Date(selectedDate.setDate(selectedDate.getDate() - selectedDate.getDay() + (selectedDate.getDay() === 0 ? -6 : 1)));
+        // Set end to the following Sunday (14 days from the start date)
+        const end = new Date(new Date(start).setDate(start.getDate() + 13));
+
+        // Update the dateRange with the new values
+        dateRange.value.start = start;
+        dateRange.value.end = end;
+      }
+    });
+
+    return {
+      dateRange,
+    };
+  }
+};
 </script>
+
+<style scoped>
+</style>

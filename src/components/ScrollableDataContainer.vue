@@ -42,9 +42,8 @@ export default {
   data() {
     return {
       isModalOpen: false,
-      // ... other data properties ...
     };
   },
-  // ... other component options ...
+  // TODO- Add other component options
 };
 </script>

@@ -75,7 +75,7 @@ export default {
     },
     submit() {
       if (!this.isSubmitDisabled) {
-        // TODO - Handle the submission logic here
+        // TODO - Handle the form submission logic here
         console.log('Selected Company ID:', this.selectedCompany);
         console.log('Selected Report Frequency:', this.reportFrequency);
       }

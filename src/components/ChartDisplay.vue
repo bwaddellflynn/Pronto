@@ -16,7 +16,8 @@ export default {
     return {
       chart: null,
       chartData: {
-        totalBudgetedHours: 0, // These will be populated with API data
+        // TODO - These will be populated with API data
+        totalBudgetedHours: 0, 
         usedThisQuarter: 0,
         usedThisPeriod: 0,
         hoursRemaining: 0,
@@ -48,8 +49,9 @@ export default {
     renderChart(data) {
       const context = this.$refs.barChart.getContext('2d');
       
+      // Destroy the old chart if it exists
       if (this.chart) {
-        this.chart.destroy(); // Destroy the old chart if it exists
+        this.chart.destroy(); 
       }
 
       this.chart = new Chart(context, {
@@ -83,7 +85,7 @@ export default {
     this.chartData.usedThisPeriod = 10.75;
     this.chartData.hoursRemaining = 30.75;
 
-    // After setting the data, adds it to the chart
+    // Adds retrieved data to chart
     this.addChartData();
   },
 };
